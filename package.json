@@ -1,28 +1,38 @@
 {
   "name": "gpt-5-verbosity",
   "version": "0.1.0",
-  "description": "OpenCode plugin: cycle text verbosity (unset/low/medium/high) for GPT-5 models with ctrl+v, stored per session with a global default",
+  "description": "OpenCode plugin: cycle text verbosity (unset/low/medium/high) for GPT-5 and GPT-6 models with ctrl+v, stored per session with a global default",
   "type": "module",
   "exports": {
+    ".": "./server.ts",
     "./server": {
-      "import": "./src/server.ts"
+      "import": "./server.ts"
     },
     "./tui": {
-      "import": "./src/tui.tsx"
+      "import": "./tui.tsx"
     }
   },
   "engines": {
-    "opencode": ">=1.18.0"
+    "opencode": ">=2.0.3"
   },
   "scripts": {
+    "format": "prettier --write .",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@opencode/plugin": "2.0.3"
+  },
+  "peerDependencies": {
+    "@opencode/theme": "2.0.3",
+    "@opentui/core": ">=0.5.10",
+    "@opentui/solid": ">=0.5.10",
+    "solid-js": ">=1.9.0"
+  },
   "devDependencies": {
-    "@opencode-ai/plugin": "1.18.3",
-    "@opentui/core": "0.4.3",
-    "@opentui/keymap": "0.4.5",
-    "@opentui/solid": "0.4.3",
+    "@opentui/core": "0.5.10",
+    "@opentui/solid": "0.5.10",
     "@types/node": "^26.1.1",
+    "prettier": "^3.9.6",
     "solid-js": "1.9.12",
     "typescript": "^7.0.2"
   }
