@@ -8,7 +8,7 @@
 - Only touches GPT-5 and GPT-6 models. Does nothing for anything else; `*-chat*` variants are also skipped.
 - Also in the command palette and as `/verbosity`
 
-Needs OpenCode 2.0.3+.
+Needs OpenCode 2.0.5+.
 
 ## Install
 
@@ -49,6 +49,10 @@ When connecting to a remote server, configure the server plugin there and load t
 
 For a local checkout, run `bun install` in the plugin directory. No build step is needed.
 
+The server plugin must be enabled in `opencode.json` for the CLI controls to work.
+An entry in `cli.json` alone only loads the terminal component; it cannot save or
+apply verbosity without the server plugin.
+
 ## V2 migration notes
 
 - Replace old `plugin` entries with the `plugins` configuration above. Terminal configuration now lives in `cli.json`.
@@ -61,6 +65,7 @@ For a local checkout, run `bun install` in the plugin directory. No build step i
 ```sh
 bun install
 bun run typecheck
+bun test
 ```
 
 > ctrl+v normally pastes in OpenCode — this takes it over. Terminal paste (ctrl+shift+v, cmd+v) still works fine.

@@ -15,7 +15,7 @@ export default Plugin.define({
     const reportError = (error: unknown) => {
       ctx.ui.toast.show({
         title: "GPT verbosity",
-        message: error instanceof Error ? error.message : String(error),
+        message: errorMessage(error),
         variant: "error",
       });
     };
@@ -135,3 +135,17 @@ export default Plugin.define({
     };
   },
 });
+
+export function errorMessage(error: unknown): string {
+  if (typeof error === "object" && error !== null) {
+    if ("message" in error && typeof error.message === "string") {
+      return error.message;
+    }
+    try {
+      return JSON.stringify(error) ?? "Unknown error";
+    } catch {
+      return "Unknown error";
+    }
+  }
+  return String(error);
+}

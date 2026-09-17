@@ -48,7 +48,7 @@ export default Plugin.define({
       "title",
     ] as const) {
       await ctx.session.hook(kind, async (event) => {
-        const models = await ctx.catalog.model.list();
+        const models = await ctx.model.list();
         const model = models.data.find(
           (model) =>
             model.providerID === event.model.providerID &&
