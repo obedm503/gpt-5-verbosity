@@ -8,7 +8,7 @@
 - Only touches GPT-5 and GPT-6 models. Does nothing for anything else; `*-chat*` variants are also skipped.
 - Also in the command palette and as `/verbosity`
 
-Needs OpenCode 2.0.5+.
+Needs OpenCode 2.0.16+.
 
 ## Install
 

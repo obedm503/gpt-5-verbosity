@@ -112,10 +112,10 @@ export default Plugin.define({
           }
         >
           <box flexGrow={1} flexShrink={0} alignItems="flex-end">
-            <text fg={ctx.theme.text.subdued}>
+            <text fg={ctx.theme.text.muted}>
               verbosity{" "}
               <span
-                style={{ fg: ctx.theme.text.feedback.info.default, bold: true }}
+                style={{ fg: ctx.theme.text.feedback.success.base, bold: true }}
               >
                 {level()}
               </span>
